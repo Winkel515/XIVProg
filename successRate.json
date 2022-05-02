@@ -1,0 +1,62 @@
+[
+  {
+    "mechanic": "Thordan dodge cleave + TB",
+    "success": 76,
+    "attempts": 78,
+    "successRate": 97.43589743589743
+  },
+  {
+    "mechanic": "Thordan earthquake + dodge cleave",
+    "success": 70,
+    "attempts": 76,
+    "successRate": 92.10526315789474
+  },
+  {
+    "mechanic": "Thordan tower + tether",
+    "success": 47,
+    "attempts": 70,
+    "successRate": 67.14285714285714
+  },
+  {
+    "mechanic": "Thordan AoE + TB",
+    "success": 46,
+    "attempts": 47,
+    "successRate": 97.87234042553192
+  },
+  {
+    "mechanic": "Thordan Gaze + Dash",
+    "success": 43,
+    "attempts": 46,
+    "successRate": 93.47826086956522
+  },
+  {
+    "mechanic": "Thordan Fire & Ice",
+    "success": 5,
+    "attempts": 43,
+    "successRate": 11.627906976744185
+  },
+  {
+    "mechanic": "Thordan mit check",
+    "success": 5,
+    "attempts": 5,
+    "successRate": 100
+  },
+  {
+    "mechanic": "Thordan triple slash",
+    "success": 3,
+    "attempts": 5,
+    "successRate": 60
+  },
+  {
+    "mechanic": "Thordan Enrage",
+    "success": 2,
+    "attempts": 3,
+    "successRate": 66.66666666666666
+  },
+  {
+    "mechanic": "Nidhogg",
+    "success": 0,
+    "attempts": 2,
+    "successRate": 0
+  }
+]
