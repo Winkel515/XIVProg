@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "postinstall": "(cd backend && npm install) && (cd frontend && npm install)",
     "backend": "npm start --prefix backend",
     "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
