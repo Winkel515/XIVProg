@@ -1,0 +1,10 @@
+.Footer{
+    background-color: gray;
+}
+
+.authors{
+    text-align: center;
+    font-weight:400;
+    color:black;
+    line-height: 50%;
+}
