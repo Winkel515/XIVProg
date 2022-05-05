@@ -1,3 +1,7 @@
-An analyzer for FFXIV DragonSongwar's Reprise (DSR)
+A FFXIV fight progression analyzer
+
+npm install
+
+npm run postinstall
 
 npm run dev
