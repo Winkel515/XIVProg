@@ -1,10 +1,10 @@
 import React from 'react';
 import '../css/Footer.css' ;
-import GithuhbIcon from '@material-ui/icons./Menu'
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Footer(){
 
-    return
+    return (
         <section className='Footer'>
             <hr/>
                 <section className = 'authors'>
@@ -14,6 +14,6 @@ function Footer(){
                 </section>
             <hr/>
         </section>
-    
+        ) 
 }
 export default Footer;
