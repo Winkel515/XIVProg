@@ -5,14 +5,9 @@
         "mechanic": "Thordan dodge cleave + TB"
     },
     {
-        "min": 0,
-        "sec": 56,
-        "mechanic": "Thordan earthquake + dodge cleave"
-    },
-    {
         "min": 1,
         "sec": 23,
-        "mechanic": "Thordan tower + tether"
+        "mechanic": "Thordan earthquake + tower + tether"
     },
     {
         "min": 1,
@@ -21,23 +16,18 @@
     },
     {
         "min": 2,
-        "sec": 8,
+        "sec": 12,
         "mechanic": "Thordan Gaze + Dash"
     },
     {
         "min": 2,
-        "sec": 54,
+        "sec": 42,
         "mechanic": "Thordan Fire & Ice"
     },
     {
         "min": 2,
-        "sec": 57,
+        "sec": 58,
         "mechanic": "Thordan mit check"
-    },
-    {
-        "min": 3,
-        "sec": 9,
-        "mechanic": "Thordan triple slash"
     },
     {
         "min": 3,
