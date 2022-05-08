@@ -1,0 +1,42 @@
+[
+    {
+        "min": 0,
+        "sec": 30,
+        "mechanic": "Thordan dodge cleave + TB"
+    },
+    {
+        "min": 1,
+        "sec": 23,
+        "mechanic": "Thordan earthquake + tower + tether"
+    },
+    {
+        "min": 1,
+        "sec": 49,
+        "mechanic": "Thordan AoE + TB"
+    },
+    {
+        "min": 2,
+        "sec": 12,
+        "mechanic": "Thordan Gaze + Dash"
+    },
+    {
+        "min": 2,
+        "sec": 42,
+        "mechanic": "Thordan Fire & Ice"
+    },
+    {
+        "min": 2,
+        "sec": 58,
+        "mechanic": "Thordan mit check"
+    },
+    {
+        "min": 3,
+        "sec": 23,
+        "mechanic": "Thordan Enrage"
+    },
+    {
+        "min": 10000,
+        "sec": 10000,
+        "mechanic": "Nidhogg"
+    }
+]

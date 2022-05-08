@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import '../css/home.css'
+import '../css/home.css';
+
+
 
 const Home = () => {
+    const { getPullData, getReportData, getSuccessAndSetWipeReason } = require('../parseLib');
+    
+    const [report, setReport] = useState("");
+    const parseReport = async (e) => {
+        e.preventDefault();
+        if (report != "") {
+            var reportID = report.substring(report.lastIndexOf('/') + 1);
+            const reportData = await getReportData(reportID);
+            const pullData = getPullData(reportData);
+            const success = getSuccessAndSetWipeReason(pullData);
+            console.log(pullData)
+            console.log(success)
+        }
+    }
 
     return(
-        <>
+        <div>
             <div className = "Title">
-                <h1>DSU Progression Analysis</h1>
+                <h1>FFXIV Progression Analysis</h1>
             </div>
 
             <div>Home page <br></br>
@@ -20,9 +36,15 @@ const Home = () => {
             </div>
 
             <div>
-                <input class = "center-block" placeholder='Ex: https://www.fflogs.com/reports/MmwdX4tZpJh7f1gk/'></input>
+            <form onSubmit={parseReport}>
+                <label>
+                    report url
+                    <input type="text" value={report} onChange = {e => setReport(e.target.value)}/>
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
             </div>
-        </>
+        </div>
     )
 }
 export default Home;
