@@ -1,0 +1,8 @@
+.loading {
+    font-size: 2rem;
+}
+
+.invalid {
+    font-size: 2rem;
+    color: rgb(255, 129, 129);
+}

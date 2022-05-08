@@ -1,13 +1,30 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import '../css/home.css'
+import React, { useState, useCallback } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import '../css/home.css';
+
+
 
 const Home = () => {
+    const [report, setReport] = useState("");
+    const navigate = useNavigate();
+    const parseReport = (e) => {
+        
+        if (report != "") {
+            var rep = report
+            if (rep.length == rep.lastIndexOf('/') + 1) {
+                rep = rep.slice(0, -1);
+            }
+            
+            var reportID = rep.substring(rep.lastIndexOf('/') + 1);
+            console.log(reportID)
+            navigate('/report/' + reportID, {replace: true});
+        }
+    }
 
     return(
-        <>
+        <div>
             <div className = "Title">
-                <h1>DSU Progression Analysis</h1>
+                <h1>FFXIV Progression Analysis</h1>
             </div>
 
             <div>Home page <br></br>
@@ -20,9 +37,12 @@ const Home = () => {
             </div>
 
             <div>
-                <input class = "center-block" placeholder='Ex: https://www.fflogs.com/reports/MmwdX4tZpJh7f1gk/'></input>
+                report url
+                <input type="text" value={report} onChange = {e => {setReport(e.target.value)}}/>
+                
+                <button onClick={() => {parseReport()}}>Submit</button>
             </div>
-        </>
+        </div>
     )
 }
 export default Home;
