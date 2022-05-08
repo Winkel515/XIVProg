@@ -4,6 +4,7 @@ import Home from './pages/home';
 import User from './pages/user';
 import NotFound from './pages/404';
 import Analysis from './pages/analysis';
+import Report from './pages/report';
 
 
 const AppRouter = () => {
@@ -14,6 +15,7 @@ const AppRouter = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/user' element={<User/>}/>
         <Route path="*" element={<NotFound/>}/>
+        <Route path="/report/:reportID" element={<Report/>}/>
     </Routes>
     )
 }

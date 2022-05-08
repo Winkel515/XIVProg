@@ -1,6 +1,7 @@
 const axios = require('axios');
 const wipeCauseTimers = require('./wipeCauseTimers.json');
 
+
 const getReportData = async (reportID) => {
     return (await axios.get(`https://www.fflogs.com:443/v1/report/fights/${reportID}?api_key=5520e3472454cb3f51c8949400deaba5`)).data;
 }

@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useCallback } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import '../css/home.css';
 
 
 
 const Home = () => {
-    const { getPullData, getReportData, getSuccessAndSetWipeReason } = require('../parseLib');
-    
     const [report, setReport] = useState("");
-    const parseReport = async (e) => {
-        e.preventDefault();
+    const navigate = useNavigate();
+    const parseReport = (e) => {
+        
         if (report != "") {
-            var reportID = report.substring(report.lastIndexOf('/') + 1);
-            const reportData = await getReportData(reportID);
-            const pullData = getPullData(reportData);
-            const success = getSuccessAndSetWipeReason(pullData);
-            console.log(pullData)
-            console.log(success)
+            var rep = report
+            if (rep.length == rep.lastIndexOf('/') + 1) {
+                rep = rep.slice(0, -1);
+            }
+            
+            var reportID = rep.substring(rep.lastIndexOf('/') + 1);
+            console.log(reportID)
+            navigate('/report/' + reportID, {replace: true});
         }
     }
 
@@ -36,13 +37,10 @@ const Home = () => {
             </div>
 
             <div>
-            <form onSubmit={parseReport}>
-                <label>
-                    report url
-                    <input type="text" value={report} onChange = {e => setReport(e.target.value)}/>
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
+                report url
+                <input type="text" value={report} onChange = {e => {setReport(e.target.value)}}/>
+                
+                <button onClick={() => {parseReport()}}>Submit</button>
             </div>
         </div>
     )
