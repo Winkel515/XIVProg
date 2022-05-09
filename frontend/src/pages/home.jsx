@@ -17,7 +17,7 @@ const Home = () => {
             
             var reportID = rep.substring(rep.lastIndexOf('/') + 1);
             console.log(reportID)
-            navigate('/report/' + reportID, {replace: true});
+            navigate('/report/' + reportID + '/success', {replace: true});
         }
     }
 
