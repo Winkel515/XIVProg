@@ -13,6 +13,7 @@ const Report = () => {
     const [loading, setLoading] = useState(true);
     const [valid, setValid] = useState(true);
     const { getPullData, getReportData, getSuccessAndSetWipeReason } = require('../parseLib');
+    const type = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
     useEffect(() => {
         async function sendRequest() {
@@ -23,6 +24,9 @@ const Report = () => {
                 setReportData(rData);
                 setPullData(pData);
                 setSuccess(succ);
+                if (type == "success") {
+                    setPull(false);
+                }
             }
             catch{
                 setValid(false);
@@ -45,14 +49,14 @@ const Report = () => {
                     <> 
                     { showPull ? (
                         <div className="report">
-                            <Button variant="contained" onClick={() => setPull(false)}>Show Successes</Button>
+                            <Button variant="contained" onClick={() => {setPull(false); window.history.replaceState(null, "", "/report/" + reportID + "/success")}}>Show Successes</Button>
                             <ReactJson theme="summerfruit" displayDataTypes={false}  src={pullData}/>
                         </div>
                         ) : null}
         
                         { showPull ? null : (
                         <div className="report">
-                            <Button variant="contained" onClick={() => setPull(true)}>Show Pulls</Button>
+                            <Button variant="contained" onClick={() => {setPull(true); window.history.replaceState(null, "", "/report/" + reportID + "/pull")}}>Show Pulls</Button>
                             <ReactJson theme="summerfruit" displayDataTypes={false}  src={success}/>
                         </div>
                         )}
