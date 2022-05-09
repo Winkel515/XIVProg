@@ -50,14 +50,14 @@ const Report = () => {
                     { showPull ? (
                         <div className="report">
                             <Button variant="contained" onClick={() => {setPull(false); window.history.replaceState(null, "", "/report/" + reportID + "/success")}}>Show Successes</Button>
-                            <ReactJson theme="summerfruit" displayDataTypes={false}  src={pullData}/>
+                            <ReactJson theme="summerfruit" displayDataTypes={false} collapsed={2} src={pullData}/>
                         </div>
                         ) : null}
         
                         { showPull ? null : (
                         <div className="report">
                             <Button variant="contained" onClick={() => {setPull(true); window.history.replaceState(null, "", "/report/" + reportID + "/pull")}}>Show Pulls</Button>
-                            <ReactJson theme="summerfruit" displayDataTypes={false}  src={success}/>
+                            <ReactJson theme="summerfruit" displayDataTypes={false} collapsed={2} src={success}/>
                         </div>
                         )}
                     </>
