@@ -21,7 +21,7 @@ const themeDark = createTheme({
     text: {
       primary: 'rgba(255,255,255,0.85)',
       secondary: 'rgba(232,229,225,0.54)',
-      disasbled: 'rgba(214,214,214,0.38)',
+      disabled: 'rgba(214,214,214,0.38)',
       hint: 'rgba(191,191,191,0.38)',
     },
   },

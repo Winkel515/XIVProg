@@ -23,16 +23,17 @@ const Home = () => {
 
     return(
         <div>
+
             <div className = "Title">
                 <h1>FFXIV Progression Analysis</h1>
             </div>
 
             <div>Home page <br></br>
-                    <Link to="/user">
-                        <button variant="outlined">
-                            User
-                        </button>
-                    </Link>
+                <Link to="/create">
+                    <button variant="outlined">
+                        Create Account / Sign in
+                    </button>
+                </Link>
 
             </div>
 
