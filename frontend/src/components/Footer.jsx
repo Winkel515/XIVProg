@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/Footer.css' ;
-import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Footer(){
 
