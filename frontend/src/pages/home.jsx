@@ -6,10 +6,6 @@ const Home = () => {
 
     return(
         <>
-            <div className = "Title">
-                <h1>DSU Progression Analysis</h1>
-            </div>
-
             <div>Home page <br></br>
                     <Link to="/user">
                         <button variant="outlined">
