@@ -2,10 +2,10 @@ const axios = require('axios');
 const fs = require('fs');
 const wipeCauseTimers = require('./wipeCauseTimers.json');
 
-const ENCOUNTER_ID = "PkyCFm1xw8Z4hYtX";
+const REPORT_ID = "BPM8zrqTnV4RYgHC";
 
 const main = async() => {
-    const reportData = await getReportData()
+    const reportData = await getReportData(ENCOUNTER_ID)
     const pullData = getPullData(reportData);
     const success = getSuccessAndSetWipeReason(pullData);
     console.log(pullData);
@@ -17,8 +17,8 @@ const main = async() => {
     })
 }
 
-const getReportData = async () => {
-    return (await axios.get(`https://www.fflogs.com:443/v1/report/fights/${ENCOUNTER_ID}?api_key=5520e3472454cb3f51c8949400deaba5`)).data;
+const getReportData = async (reportID) => {
+    return (await axios.get(`https://www.fflogs.com:443/v1/report/fights/${reportID}?api_key=5520e3472454cb3f51c8949400deaba5`)).data;
 }
 
 /*
@@ -52,7 +52,7 @@ const getPullData = (report) => {
     for (let i = 0; i < fights.length; i++) {
         // pull duration time calculation
         const durationMinutes = Math.floor((fights[i].end_time - fights[i].start_time)/1000/60);
-        const durationSeconds = '0' + Math.floor((fights[i].end_time - fights[i].start_time)/1000%60);
+        const durationSeconds = Math.floor((fights[i].end_time - fights[i].start_time)/1000%60);
 
         // for start time of pull
         const startDate = new Date(report.start + report.fights[i].start_time)
@@ -61,10 +61,9 @@ const getPullData = (report) => {
 
         data.push({
             pull_number: fights[i].pull_number,
-            duration: `${durationMinutes}:${durationSeconds.substring(durationSeconds.length-2)}`,
             startTime: `${startHours}:${startMinutes.substring(startMinutes.length-2)}`,
             durationMinutes: durationMinutes,
-            durationSeconds: parseInt(durationSeconds), // parseInt because of string conversion for formating durationSeconds
+            durationSeconds: durationSeconds,
             id: fights[i].id
         })
     }
@@ -80,32 +79,41 @@ const getSuccessAndSetWipeReason = (pullData) => {
         mechanicSuccess.push({
             mechanic: wipe.mechanic,
             success: 0,
-            attempts: 0,
-            // successPullNumber: [],
-            // failurePullNumber: []
+            seen: 0,
+            successPullNumber: [],
+            failurePullNumber: []
         })
     }
 
     for(const pull of pullData) {
         for(let i = 0; i < wipeCauseTimers.length; i++) {
             const wipe = wipeCauseTimers[i];
-            mechanicSuccess[i].attempts++;
+            mechanicSuccess[i].seen++;
             if(wipe.min > pull.durationMinutes || wipe.min === pull.durationMinutes && wipe.sec > pull.durationSeconds) {
                 pull.wipeReason = wipe.mechanic;
-                // mechanicSuccess[i].failurePullNumber.push(pull.pull_number)
+                mechanicSuccess[i].failurePullNumber.push(pull.pull_number)
                 break;
             } else {
                 mechanicSuccess[i].success++;
-                // mechanicSuccess[i].successPullNumber.push(pull.pull_number)
+                mechanicSuccess[i].successPullNumber.push(pull.pull_number)
             }
         }
     }
 
     for(const x of mechanicSuccess) {
-        x.successRate = x.success/x.attempts * 100
+        x.successRate = Math.round(x.success/x.seen * 10000) / 100
+        x.seenPercent = Math.round(x.seen/pullData.length * 10000) / 100;
     }
 
     return mechanicSuccess;
 }
 
-main();
+if (process.argv[1] === __filename) {
+    main();
+}
+
+module.exports = {
+    getReportData,
+    getPullData,
+    getSuccessAndSetWipeReason
+}
