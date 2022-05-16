@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/authentication.css';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -85,9 +85,10 @@ const Login = () => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/create" variant="body2">
-                  Don't have an account? Sign up
-                </Link>
+                  <Link to="/create" style={{ color: 'inherit'}}>
+                    <div>Don't have an account? Sign up</div>
+                    
+                  </Link>
               </Grid>
             </Grid>
           </Box>

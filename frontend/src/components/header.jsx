@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link } from "react-router-dom";
 
 const theme = createTheme(
 {
@@ -32,7 +33,10 @@ function Header(){
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 XIV PROG
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Link to="/login">
+                <Button color="inherit">Login</Button>
+            </Link>
+            
             </Toolbar>
         </AppBar>
       </ThemeProvider>

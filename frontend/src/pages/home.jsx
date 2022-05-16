@@ -23,12 +23,6 @@ const Home = () => {
     return(
         <>
             <div>Home page <br></br>
-                <Link to="/create">
-                    <button variant="outlined">
-                        Create Account / Sign in
-                    </button>
-                </Link>
-
             </div>
 
             <div>
