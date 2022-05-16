@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import '../css/home.css';
 
 
@@ -16,18 +16,12 @@ const Home = () => {
             }
             
             var reportID = rep.substring(rep.lastIndexOf('/') + 1);
-            console.log(reportID)
-            navigate('/report/' + reportID + '/success', {replace: true});
+            navigate('/report/' + reportID + '/success', {replace: false});
         }
     }
 
     return(
-        <div>
-
-            <div className = "Title">
-                <h1>FFXIV Progression Analysis</h1>
-            </div>
-
+        <>
             <div>Home page <br></br>
                 <Link to="/create">
                     <button variant="outlined">
@@ -43,7 +37,7 @@ const Home = () => {
                 
                 <button onClick={() => {parseReport()}}>Submit</button>
             </div>
-        </div>
+        </>
     )
 }
 export default Home;
