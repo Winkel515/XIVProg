@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import '../css/home.css';
 
 
@@ -16,8 +16,7 @@ const Home = () => {
             }
             
             var reportID = rep.substring(rep.lastIndexOf('/') + 1);
-            console.log(reportID)
-            navigate('/report/' + reportID + '/success', {replace: true});
+            navigate('/report/' + reportID + '/success', {replace: false});
         }
     }
 
