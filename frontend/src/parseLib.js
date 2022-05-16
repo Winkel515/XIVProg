@@ -28,7 +28,7 @@ const getPullData = (report) => {
 
     for (let i = 0; i < report.fights.length; i++) {
         const reportFight = report.fights[i];
-        if(reportFight.boss !== 0 && reportFight.fightPercentage < 9000) // sub 20 sec pulls. fflogs considers them as Trash Fight
+        if(reportFight.boss !== 0 && reportFight.fightPercentage < 8900) // sub 20 sec pulls. fflogs considers them as Trash Fight
             fights.push(report.fights[i])
     }
 
@@ -40,7 +40,7 @@ const getPullData = (report) => {
         const durationSeconds = Math.floor((fights[i].end_time - fights[i].start_time)/1000%60);
 
         // for start time of pull
-        const startDate = new Date(report.start + report.fights[i].start_time)
+        const startDate = new Date(report.start + fights[i].start_time)
         const startHours = startDate.getHours();
         const startMinutes = '0' + startDate.getMinutes();
 
