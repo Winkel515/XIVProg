@@ -11,7 +11,7 @@ const theme = createTheme(
 {
     palette:{
         primary:{
-            light:"#212121",
+            light:"#f0f0f0",
             main:"#484848",
             dark:"#000000",
         },
@@ -34,7 +34,7 @@ function Header(){
                 XIV PROG
             </Typography>
             <Link to="/login">
-                <Button color="inherit">Login</Button>
+                <Button sx={{ color: 'primary.light', backgroundColor: 'primary.main'}}>Login</Button>
             </Link>
             
             </Toolbar>
