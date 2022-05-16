@@ -56,10 +56,13 @@ function App(){
     
     //have retrievable setting somewhere for mod
     <ThemeProvider theme={themeDark}>
-      <Header/>
       <CssBaseline/>
-      <AppRouter/>
-      <Footer/>
+      <div className="Container">
+        <Header/>
+        <AppRouter/>
+        <Footer/>
+      </div>
+      
     </ThemeProvider>
   );
 }

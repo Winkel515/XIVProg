@@ -1,5 +1,6 @@
 .Footer{
     background-color: gray;
+    max-height: 11vh;
 }
 
 .authors{
@@ -7,4 +8,9 @@
     font-weight:400;
     color:black;
     line-height: 50%;
+    font-size: 1.25vh;
+}
+
+.GitHubIcon {
+    height: 10%;
 }
